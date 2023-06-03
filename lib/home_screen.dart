@@ -82,6 +82,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _getZones() {
+    setState(() {
+      _selectedZone = null;
+      _pharmacies = [];
+    });
     ApiService.getInstance()
         .get('api/v1/cities/${_selectedCity?.id}/zones')
         .then((response) {
